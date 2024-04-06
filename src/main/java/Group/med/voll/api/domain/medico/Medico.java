@@ -6,12 +6,14 @@ import Group.med.voll.api.dto.medico.Especialidade;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(name = "medicos")
 @Entity(name = "Medico")
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 @EqualsAndHashCode(of = "id")
 public class Medico {
     @Id
