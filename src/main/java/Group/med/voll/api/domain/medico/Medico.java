@@ -1,6 +1,7 @@
 package Group.med.voll.api.domain.medico;
 
 import Group.med.voll.api.domain.endereco.Endereco;
+import Group.med.voll.api.dto.medico.DadosAtualizacaoMedicoDTO;
 import Group.med.voll.api.dto.medico.DadosCadastroMedicoDTO;
 import Group.med.voll.api.dto.medico.Especialidade;
 import jakarta.persistence.*;
@@ -37,5 +38,17 @@ public class Medico {
         this.crm = dados.crm();
         this.especialidade = dados.especialidade();
         this.endereco = new Endereco(dados.dadosEndereco());
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoMedicoDTO dados){
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.telefone() != null) {
+            this.telefone = dados.telefone();
+        }
+        if (dados.endereco() != null) {
+            this.endereco.atualizarInformacoes(dados.endereco());
+        }
     }
 }

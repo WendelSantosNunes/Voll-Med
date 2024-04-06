@@ -1,6 +1,7 @@
 package Group.med.voll.api.controllers;
 
 import Group.med.voll.api.domain.medico.Medico;
+import Group.med.voll.api.dto.medico.DadosAtualizacaoMedicoDTO;
 import Group.med.voll.api.dto.medico.DadosCadastroMedicoDTO;
 import Group.med.voll.api.dto.medico.DadosListagemMedico;
 import Group.med.voll.api.repositories.MedicosRepository;
@@ -11,8 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/medicos")
@@ -30,5 +29,13 @@ public class MedicoController {
     @GetMapping
     public Page<DadosListagemMedico> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
         return this.medicosRepository.findAll(paginacao).map(DadosListagemMedico::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoMedicoDTO dados) {
+        var medico = this.medicosRepository.getReferenceById(dados.id());
+        medico.atualizarInformacoes(dados);
+
     }
 }
