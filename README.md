@@ -17,6 +17,7 @@
 
 Este é um projeto de back-end para uma clínica médica fictícia. O objetivo é aprender a criar um CRUD através do curso 
 ‘Spring Boot 3: Desenvolva uma API Rest na plataforma Java’ oferecido pela Alura.
+
 ---
 ### 💻 Funcionalidades
 
