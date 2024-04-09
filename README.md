@@ -107,7 +107,7 @@ Certifique-se de que todas as configurações do ambiente foram realizadas corre
 
 - No projeto aberto, localize e clique no arquivo AuthApplication.java.
 
-- Em seguida, selecione a opção “Run ‘AuthApplication’” para executar o projeto.
+- Em seguida, selecione a opção “Run ‘ApiApplication’” para executar o projeto.
 
 - Após a execução, o projeto estará acessível através do seguinte endereço: http://localhost:8080/
 
